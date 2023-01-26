@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+	<script src="~/lib/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="~/css/error/errorStyle.css"/>
+	<link rel="stylesheet" href="~/css/home/headerStyle.css" />
+</head>
+<body>
+    <header>
+		@{
+			await Html.RenderPartialAsync("Header/_HeaderPartial");
+		}
+		<div id="profile">
+			<button id="profileButton" class="profile-btn">
+				<svg 
+					id="svgProfile"
+					class="dots-icon"
+					width="32" 
+					height="32" 
+					viewBox="0 0 32 32" 
+					xmlns="http://www.w3.org/2000/svg">
+					<g clip-path="url(#clip0_203_2)">
+						<path d="M8.61903 7.90399C6.46203 7.90399 4.70703 9.69499 4.70703 11.896C4.70703 14.097 6.46203 15.888 8.61903 15.888C10.776 15.888 12.531 14.097 12.531 11.896C12.531 9.69499 10.776 7.90399 8.61903 7.90399ZM8.61903 14.887C7.01303 14.887 5.70703 13.545 5.70703 11.895C5.70703 10.245 7.01303 8.90299 8.61903 8.90299C10.225 8.90299 11.531 10.245 11.531 11.895C11.531 13.545 10.225 14.887 8.61903 14.887Z"/>
+						<path d="M12.4 16.852L12.079 16.753L8.619 19.416L5.159 16.753L4.838 16.852C-0.00500011 18.334 2.12314e-08 23.378 2.12314e-08 23.428L0.00800002 24.097H17.23L17.238 23.428C17.238 23.378 17.243 18.334 12.4 16.852ZM1.017 23.097C1.107 22.068 1.651 18.973 4.961 17.863L8.009 20.209L8.619 20.678L9.229 20.209L12.277 17.863C15.595 18.975 16.134 22.082 16.221 23.097H1.017Z"/>
+						<path d="M32 7.38098H21.465V8.38098H32V7.38098Z"/>
+						<path d="M32 11.44H21.465V12.44H32V11.44Z"/>
+						<path d="M32 15.5H21.465V16.5H32V15.5Z"/>
+						<path d="M32 19.56H21.465V20.56H32V19.56Z"/>
+						<path d="M32 23.619H21.465V24.619H32V23.619Z"/>
+					</g>
+					<defs>
+						<clipPath id="clip0_203_2">
+							<rect width="32" height="32" fill="white"/>
+						</clipPath>
+					</defs>
+				</svg>
+			</button>
+			<div id ="profileContent" class="profile-content">
+				<a asp-controller="Profile" asp-action="Index">Профиль</a>
+				<a href="#">Ссылка 2</a>
+				<a href="#">Ссылка 3</a>
+			</div>
+		</div>
+	</header>
+	<script src="~/js/header/profileMenuHeader.js"></script>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

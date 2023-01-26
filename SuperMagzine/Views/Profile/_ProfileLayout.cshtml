@@ -1,0 +1,15 @@
+﻿@{
+	Layout = "_AccountLayout";
+}
+
+<link rel="stylesheet" href="~/css/profile/profile.css" />
+
+<div class="profile-page">
+	@{
+		await Html.RenderPartialAsync("ProfileMenu/_ProfileMenuPartial");
+	}
+	<script src="~/js/profile/profileMenu.js"></script>
+	<div id="menu_content">
+		@RenderBody()
+	</div>
+</div>

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+	<script src="~/lib/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="~/css/error/errorStyle.css"/>
+	<link rel="stylesheet" href="~/css/home/headerStyle.css" />
+</head>
+<body>
+    <header>
+		@{
+			await Html.RenderPartialAsync("Header/_HeaderPartial");
+		}
+		<div id="regAuth">
+			<a asp-controller="User" asp-action="Login">
+				Вход
+			</a>
+			|
+			<a asp-controller="User" asp-action="Register">
+				Регистрация
+			</a>
+		</div>
+	</header>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

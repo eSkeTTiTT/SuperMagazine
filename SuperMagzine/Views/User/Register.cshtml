@@ -1,0 +1,56 @@
+﻿@model SuperMagazine.Domain.Models.UserRegisterViewModel
+
+<html>
+	<head>
+		<link rel="stylesheet" href="~/css/auth/auth.css"/>
+	</head>
+	<body>
+	<div>
+		<form method="post" asp-controller="User" asp-action="Register" enctype="multipart/form-data">
+		<div class="centerLayer">
+			<div asp-validation-summary="ModelOnly"></div>
+			<p>
+				<label asp-for="Email"></label><br/>
+				<input type="text" asp-for="Email" /><br />
+				<span asp-validation-for="Email" />
+			</p>
+			<p>
+				<label asp-for="UserName"></label><br/>
+				<input type="text" asp-for="UserName" /><br />
+				<span asp-validation-for="UserName" />
+			</p>
+			<p>
+				<label asp-for="UserSurname"></label><br/>
+				<input type="text" asp-for="UserSurname" /><br />
+				<span asp-validation-for="UserSurname" />
+			</p>
+			<p>
+				<label asp-for="Age"></label><br/>
+				<input type="text" asp-for="Age" /><br />
+				<span asp-validation-for="Age" />
+			</p>
+			<p>
+				<label asp-for="Password">Пароль</label><br/>
+				<input asp-for="Password" /><br />
+				<span asp-validation-for="Password" />
+			</p>
+			<p>
+				<label asp-for="RepeatPassword"></label><br/>
+				<input asp-for="RepeatPassword" /><br />
+				<span asp-validation-for="RepeatPassword" />
+			</p>
+			<p>
+				<label asp-for="Image"></label><br />
+				<input type="file" value="Загрузить изображение" asp-for="Image" accept="image/*"/><br />
+				<span asp-validation-for="Image"></span>
+			</p>
+			<p>
+				<input type="submit" value="Зарегаться">
+				<a asp-controller="User" asp-action="Login">Назад</a>
+			</p>
+		</div>
+	</form>
+	</div>
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+</body>
+</html>

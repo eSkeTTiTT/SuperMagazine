@@ -1,0 +1,24 @@
+﻿@{
+	ViewBag.Heading = "Личные данные";
+}
+
+@model SuperMagazine.Domain.Models.UserProfileRedactorViewModel
+
+<form method="post">
+	<p>
+		<label asp-for="Name"></label><br />
+		<input type="text" asp-for="Name" value="@Model.Name"/><br />
+		<span asp-validation-for="Name" />
+	</p>
+	<p>
+		<label asp-for="Surname"></label><br />
+		<input type="text" asp-for="Surname" value="@Model.Surname"/><br />
+		<span asp-validation-for="Surname" />
+	</p>
+	<p>
+		<label asp-for="Age"></label><br />
+		<input type="text" asp-for="Age" value="@Model.Age"/><br />
+		<span asp-validation-for="Age" />
+	</p>
+	<input type="submit" value="Сохранить" />
+</form>

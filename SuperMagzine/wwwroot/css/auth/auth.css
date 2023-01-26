@@ -1,0 +1,39 @@
+﻿form {
+    display: table;
+}
+
+form p {
+    display: table-row;
+}
+
+form label, form input {
+}
+
+form label {
+    width: 200px;
+    padding-right: 5%;
+}
+
+form input {
+    width: 300px;
+    margin-bottom: 5px;
+}
+
+form span {
+    margin-top: 0px;
+    color: orangered;
+}
+
+.centerLayer {
+    position: absolute; /* Абсолютное позиционирование */
+    width: 400px; /* Ширина слоя в пикселах */
+    height: 300px; /* Высота слоя в пикселах */
+    left: 50%; /* Положение слоя от левого края */
+    top: 50%; /* Положение слоя от верхнего края */
+    margin-left: -211px; /* Отступ слева, включает padding и border */
+    margin-top: -150px; /* Отступ сверху */
+    background: #b0bd96; /* Цвет фона */
+    border: solid 1px black; /* Параметры рамки вокруг */
+    padding: 10px; /* Поля вокруг текста */
+    overflow: auto; /* Добавление полосы прокрутки */
+}

@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperMagzine", "SuperMagzine\SuperMagzine.csproj", "{F195F283-BF5E-4A0E-A2D3-9D76314984AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{0BA1BE92-EDF8-4FB5-8C54-34AE152B80B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{B46B1330-F892-4EB2-B4E0-620D78F22523}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMagazine.DAL", "SuperMagazine.DAL\SuperMagazine.DAL.csproj", "{76F88762-8ECB-491A-9037-2AF55942C2FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMagazine.Domain", "SuperMagazine.Domain\SuperMagazine.Domain.csproj", "{14CC0F3D-83D1-4292-BC74-F35DEA4429B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{CDC0C4A1-9324-490A-99F8-CCD5B1DBE2DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMagazine.Services", "SuperMagazine.Services\SuperMagazine.Services.csproj", "{A0045437-FCEE-46FA-A677-85D960FFE259}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F195F283-BF5E-4A0E-A2D3-9D76314984AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F195F283-BF5E-4A0E-A2D3-9D76314984AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F195F283-BF5E-4A0E-A2D3-9D76314984AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F195F283-BF5E-4A0E-A2D3-9D76314984AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76F88762-8ECB-491A-9037-2AF55942C2FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76F88762-8ECB-491A-9037-2AF55942C2FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76F88762-8ECB-491A-9037-2AF55942C2FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76F88762-8ECB-491A-9037-2AF55942C2FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14CC0F3D-83D1-4292-BC74-F35DEA4429B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14CC0F3D-83D1-4292-BC74-F35DEA4429B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14CC0F3D-83D1-4292-BC74-F35DEA4429B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14CC0F3D-83D1-4292-BC74-F35DEA4429B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0045437-FCEE-46FA-A677-85D960FFE259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0045437-FCEE-46FA-A677-85D960FFE259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0045437-FCEE-46FA-A677-85D960FFE259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0045437-FCEE-46FA-A677-85D960FFE259}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{76F88762-8ECB-491A-9037-2AF55942C2FF} = {B46B1330-F892-4EB2-B4E0-620D78F22523}
+		{14CC0F3D-83D1-4292-BC74-F35DEA4429B3} = {0BA1BE92-EDF8-4FB5-8C54-34AE152B80B8}
+		{A0045437-FCEE-46FA-A677-85D960FFE259} = {CDC0C4A1-9324-490A-99F8-CCD5B1DBE2DB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8D006EE-3491-45F8-ADA2-528F0D72282A}
+	EndGlobalSection
+EndGlobal

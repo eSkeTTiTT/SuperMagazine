@@ -1,0 +1,39 @@
+﻿#menu_content {
+    display: inline-block;
+}
+
+.profile-page {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.profile-menu {
+    margin-top: 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+.profile-menu .button {
+    display: block;
+    text-align: left;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.profile-menu .button:hover {
+    background-color: red;
+    transition: 0.4s;
+}
+
+.profile-menu .button a {
+    background-color: aqua;
+}
+
+.profile-menu a svg {
+    vertical-align: middle;
+    fill: #09244B;
+}
+
+.profile-main {
+    margin-left: 50px;
+    display: inline-block
+}
