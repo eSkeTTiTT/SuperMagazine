@@ -37,6 +37,13 @@ namespace SuperMagzine.Controllers
 
 		[Authorize]
 		[HttpPost]
+		public IActionResult SavePersonal(UserProfileRedactorViewModel redactorViewModel)
+		{
+			return Redirect("Index");
+		}
+
+		[Authorize]
+		[HttpPost]
 		public IActionResult GetView(string viewName)
 		{
 			return viewName switch
