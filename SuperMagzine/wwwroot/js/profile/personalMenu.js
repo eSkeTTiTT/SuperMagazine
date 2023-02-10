@@ -1,9 +1,4 @@
 ﻿$(document).ready(function () {
-    $('#personal_form').submit(function (e) {
-        e.preventDefault();
-
-        alert('lox');
-    });
     $('#personal_form').validate({
         rules: {
             personal_name: {
@@ -34,12 +29,27 @@
             },
             personal_age: {
                 required: 'Поле обязательно к заполнению',
-                minlength: 'Некорректный возраст',
-                maxlength: 'Некорректный возраст',
-            },
+                range: 'Некорректный возраст',
+            }
         },
         submitHandler: function (form) {
-            form.submit();
+            $.blockUI({
+                message: '<div class="loader"></div>',
+                css: {
+                    border: 'none',
+                    backgroundColor: 'transparent',
+                    padding: '15px',
+                }
+            });
+            $.ajax({
+                url: '/Profile/SavePersonal',
+                method: 'post',
+                data: form,
+                success: function (data) {
+                    alert(data);
+
+                }
+            });
         }
     });
-})
+});

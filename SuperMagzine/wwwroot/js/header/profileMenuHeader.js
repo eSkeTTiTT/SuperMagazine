@@ -11,16 +11,18 @@
     event.stopPropagation();
 }
 
-var btn = document.getElementById("profileButton");
-var svg = document.getElementById("svgProfile");
-var profileContent = document.getElementById("profileContent");
-svg.onclick = profileButtonClick;
-btn.onclick = profileButtonClick;
+$(document).ready(function () {
+    var btn = document.getElementById("profileButton");
+    var svg = document.getElementById("svgProfile");
+    var profileContent = document.getElementById("profileContent");
+    svg.onclick = profileButtonClick;
+    btn.onclick = profileButtonClick;
 
-window.onclick = function (event) {
-    if ((event.target != svg && event.target != btn)) {
-        if (profileContent.classList.contains("show")) {
-            profileContent.classList.remove("show");
+    window.onclick = function (event) {
+        if ((event.target != svg && event.target != btn)) {
+            if (profileContent.classList.contains("show")) {
+                profileContent.classList.remove("show");
+            }
         }
     }
-}
+})

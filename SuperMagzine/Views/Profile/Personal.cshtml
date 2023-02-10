@@ -4,22 +4,23 @@
 
 @model SuperMagazine.Domain.Models.UserProfileRedactorViewModel
 
-<form id="personal_form"
-	method="post">
+<form id="personal_form" method="post">
 	<p>
 		<label asp-for="Name"></label><br />
-		<input id="personal_name" type="text" asp-for="Name" value="@Model.Name"/><br />
+		<input id="personal_name" name="personal_name" type="text" asp-for="Name" value="@Model.Name"/><br />
 		<span asp-validation-for="Name" />
 	</p>
 	<p>
 		<label asp-for="Surname"></label><br />
-		<input id="personal_surname" type="text" asp-for="Surname" value="@Model.Surname"/><br />
+		<input id="personal_surname" name="personal_surname" type="text" asp-for="Surname" value="@Model.Surname" /><br />
 		<span asp-validation-for="Surname" />
 	</p>
 	<p>
 		<label asp-for="Age"></label><br />
-		<input id="personal_age" type="text" asp-for="Age" value="@Model.Age" /><br />
+		<input id="personal_age" name="personal_age" type="text" asp-for="Age" value="@Model.Age" /><br />
 		<span asp-validation-for="Age" />
 	</p>
 	<input type="submit" value="Сохранить" />
 </form>
+
+<script src="~/js/profile/personalMenu.js"></script>
