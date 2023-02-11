@@ -37,11 +37,9 @@ namespace SuperMagzine.Controllers
 
 		[Authorize]
 		[HttpPost]
-		public async Task<IActionResult> SavePersonal(UserProfileRedactorViewModel userProfileRedactorViewModel)
+		public async Task SavePersonal(UserProfileRedactorViewModel userRedactorVM)
 		{
-			var a = userProfileRedactorViewModel;
 			await Task.Delay(5000);
-			return Redirect("Index");
 		}
 
 		[Authorize]

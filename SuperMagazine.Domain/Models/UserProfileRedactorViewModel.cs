@@ -17,5 +17,17 @@ namespace SuperMagazine.Domain.Models
 		[Range(1, 100, ErrorMessage = "Некорректный возраст")]
 		[DisplayName("Возраст")]
 		public int Age { get; set; }
+
+		#region Operators
+
+		public static bool operator ==(UserProfileRedactorViewModel first, UserProfileRedactorViewModel second) =>
+			first.Name == second.Name
+			&& first.Surname == second.Surname
+			&& first.Age == second.Age;
+
+		public static bool operator !=(UserProfileRedactorViewModel first, UserProfileRedactorViewModel second) =>
+			!(first == second);
+
+		#endregion
 	}
 }
