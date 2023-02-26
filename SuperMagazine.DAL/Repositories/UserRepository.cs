@@ -5,7 +5,7 @@ using SuperMagazine.Domain.Entities;
 
 namespace SuperMagazine.DAL.Repositories
 {
-	public class UserRepository :BaseCacheRepository<User>, IUserRepository
+	public class UserRepository : BaseCacheRepository<User>, IUserRepository
 	{
 		#region Properties
 

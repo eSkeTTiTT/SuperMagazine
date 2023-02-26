@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SuperMagazine.DAL.Interfaces;
 using SuperMagazine.Domain.Enums;
 using SuperMagazine.Domain.Models;
+using SuperMagazine.Services.Interfaces;
 
 namespace SuperMagzine.Controllers
 {
@@ -10,18 +11,17 @@ namespace SuperMagzine.Controllers
 	{
 		#region Properties
 
-		private UserProfileViewModel? _userProfileViewModel = null;
-		private UserProfileRedactorViewModel? _userProfileRedactorViewModel = null;
-
 		private readonly IUserRepository _userRepository;
+		private readonly IUserAuthorizationService _authorizationService;
 
 		#endregion
 
 		#region Constructors
 
-		public ProfileController(IUserRepository userRepository)
+		public ProfileController(IUserRepository userRepository, IUserAuthorizationService userAuthorization)
 		{
 			_userRepository = userRepository;
+			_authorizationService = userAuthorization;
 		}
 
 		#endregion
@@ -37,9 +37,30 @@ namespace SuperMagzine.Controllers
 
 		[Authorize]
 		[HttpPost]
-		public async Task SavePersonal(UserProfileRedactorViewModel userRedactorVM)
+		public async Task<IActionResult> SavePersonal(UserProfileRedactorViewModel userRedactorVM)
 		{
-			await Task.Delay(5000);
+			// Сохраняем в бд
+			var userClaims = HttpContext.User;
+			Guid id = new Guid(userClaims.FindFirst(IdentityTypes.Id)?.Value ?? "");
+			var result = await _userRepository.Get(id);
+
+			if (result != null)
+			{
+				result.Surname = userRedactorVM.Surname;
+				result.Name = userRedactorVM.Name;
+				result.Age = userRedactorVM.Age;
+
+				await _userRepository.Update(result);
+
+				// Пересоздаем claims
+				var updateResult = await _authorizationService.Update(result, HttpContext);
+			}
+			else
+			{
+				return BadRequest();
+			}
+
+			return Ok();
 		}
 
 		[Authorize]
@@ -58,31 +79,19 @@ namespace SuperMagzine.Controllers
 
 		private UserProfileViewModel GetUserProfileViewModel()
 		{
-			if (_userProfileViewModel is not null)
-			{
-				return _userProfileViewModel;
-			}
-			
 			var userClaims = HttpContext.User;
 
-			_userProfileViewModel = new UserProfileViewModel
+			return new UserProfileViewModel
 			{
 				Name = userClaims.FindFirst(IdentityTypes.Name)?.Value,
 				Surname = userClaims.FindFirst(IdentityTypes.Surname)?.Value,
 				Email = userClaims.FindFirst(IdentityTypes.Login)?.Value,
 				ProfileImageUrl = userClaims.FindFirst(IdentityTypes.ProfileImageUrl)?.Value
 			};
-
-			return _userProfileViewModel;
 		}
 
 		private async Task<UserProfileRedactorViewModel> GetUserProfileRedactorViewModel()
 		{
-			if (_userProfileRedactorViewModel is not null)
-			{
-				return _userProfileRedactorViewModel;
-			}
-
 			var userClaims = HttpContext.User;
 
 			string? id = userClaims.FindFirst(IdentityTypes.Id)?.Value;
@@ -90,14 +99,12 @@ namespace SuperMagzine.Controllers
 
 			var user = await _userRepository.Get(guidId);
 
-			_userProfileRedactorViewModel = new UserProfileRedactorViewModel
+			return new UserProfileRedactorViewModel
 			{
 				Name = user.Name,
 				Surname = user.Surname,
 				Age = user.Age
 			};
-
-			return _userProfileRedactorViewModel;
 		}
 
 		#endregion

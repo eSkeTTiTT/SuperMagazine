@@ -68,6 +68,13 @@ namespace SuperMagazine.Services.Implementations
 			return true;
 		}
 
+		public async Task<bool> Update(User user, HttpContext context)
+		{
+			await context.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+			return await CreateClaims(user, context);
+		}
+
 		#region Private Methods
 
 		private async Task<bool> CreateClaims(User user, HttpContext context)
