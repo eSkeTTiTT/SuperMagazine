@@ -5,12 +5,19 @@ using SuperMagazine.Domain.Enums;
 public class ApplicationDbContext : DbContext
 {
 	public DbSet<User> Users { get; set; } = null!;
+	public DbSet<Product> Products { get; set; } = null!;
+	public DbSet<Category> Categories { get; set; } = null!;
 
 	public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
 		: base(options)
 	{
-		Database.EnsureCreated();
+		//Database.EnsureCreated();
 	}
+
+	//protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+	//{
+	//	optionsBuilder.UseSqlServer("Server=localhost;Database=SiteDatabase;Trusted_Connection=True;MultipleActiveResultSets=True;TrustServerCertificate=True;");
+	//}
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{

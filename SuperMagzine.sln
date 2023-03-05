@@ -9,13 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{0BA1BE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{B46B1330-F892-4EB2-B4E0-620D78F22523}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMagazine.DAL", "SuperMagazine.DAL\SuperMagazine.DAL.csproj", "{76F88762-8ECB-491A-9037-2AF55942C2FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperMagazine.DAL", "SuperMagazine.DAL\SuperMagazine.DAL.csproj", "{76F88762-8ECB-491A-9037-2AF55942C2FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMagazine.Domain", "SuperMagazine.Domain\SuperMagazine.Domain.csproj", "{14CC0F3D-83D1-4292-BC74-F35DEA4429B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperMagazine.Domain", "SuperMagazine.Domain\SuperMagazine.Domain.csproj", "{14CC0F3D-83D1-4292-BC74-F35DEA4429B3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{CDC0C4A1-9324-490A-99F8-CCD5B1DBE2DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMagazine.Services", "SuperMagazine.Services\SuperMagazine.Services.csproj", "{A0045437-FCEE-46FA-A677-85D960FFE259}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperMagazine.Services", "SuperMagazine.Services\SuperMagazine.Services.csproj", "{A0045437-FCEE-46FA-A677-85D960FFE259}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -22,6 +22,8 @@ builder.Services.AddMemoryCache();
 builder.Services.Configure<Account>(cloudinarySettings);
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IUserAuthorizationService, UserAuthorizationService>();
 builder.Services.AddScoped<IPhotoService, PhotoService>();
 

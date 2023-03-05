@@ -1,0 +1,13 @@
+﻿@model List<SuperMagazine.Domain.Entities.Category>
+
+<form method="post">
+	<label>Выберите категорию товара</label><br />
+	<select name="id">
+		@foreach (var item in Model)
+		{
+			<option value="@item.Id">@item.Name</option>
+		}
+	</select>
+	<br />
+	<input type="submit" value="Отобразить" />
+</form>

@@ -167,6 +167,13 @@ header #profile .profile-btn {
     border: none;
 }
 
+/*bucket*/
+header #profile #bucket {
+    display: inline-block;
+    float: left;
+    margin-left: 65%;
+}
+
 .profile-content {
     display: none;
     position: absolute;
