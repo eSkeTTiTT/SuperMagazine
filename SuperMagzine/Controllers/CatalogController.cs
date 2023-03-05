@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SuperMagazine.DAL.Interfaces;
 
 namespace SuperMagzine.Controllers
 {
+	[Authorize]
 	public class CatalogController : Controller
 	{
 		#region Constructors
@@ -35,7 +37,7 @@ namespace SuperMagzine.Controllers
 		{
 			var products = await _productRepository.GetPoductsByCategoryId(id);
 
-			return View(model: products);
+			return View("Products", model: products);
 		}
 	}
 }

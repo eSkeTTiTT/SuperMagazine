@@ -1,0 +1,26 @@
+﻿@model List<SuperMagazine.Domain.Entities.Product>
+
+<link rel="stylesheet" href="~/css/catalog/catalog.css"/>
+
+<div class="products">
+    @foreach(var product in Model)
+    {
+        <div class="catalog-item">
+            <div class="product-wrap">
+                <div class="product-item">
+                    <img src="@product.ImageUrl">
+                    <div class="product-buttons">
+                      <a href="" class="button">В корзину</a>
+                    </div>
+                  </div>
+                <div class="product-title">
+                   <a href="">@product.Name</a>
+                   <span class="product-price">₽ @string.Format("{0:C0}", product.Price)</span>
+                </div>
+            </div>
+            <div class="product-description">
+                @product.Description
+            </div>
+        </div>
+    }
+</div>
