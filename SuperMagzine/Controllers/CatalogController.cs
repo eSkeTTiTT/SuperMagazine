@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SuperMagazine.DAL.Interfaces;
+using SuperMagazine.Domain.Entities;
 
 namespace SuperMagzine.Controllers
 {
@@ -38,6 +39,12 @@ namespace SuperMagzine.Controllers
 			var products = await _productRepository.GetPoductsByCategoryId(id);
 
 			return View("Products", model: products);
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> PutIntoBucket(Product product)
+		{
+			return Ok();
 		}
 	}
 }
