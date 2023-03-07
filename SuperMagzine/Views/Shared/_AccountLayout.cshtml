@@ -25,11 +25,11 @@
 				int? count = Context.Session.Get<int?>(Constants.SESSION_COUNT);
 				if (count is null)
 				{
-					<a id="bucket">Корзина</a>
+					<a id="bucket" class="a-bea" asp-controller="Bucket" asp-action="Index">Корзина</a>
 				}
 				else
 				{
-					<a id="bucket">Корзина (@count)</a>
+					<a id="bucket" class="a-bea" asp-controller="Bucket" asp-action="Index">Корзина (@count)</a>
 				}
 			}
 			<button id="profileButton" class="profile-btn">

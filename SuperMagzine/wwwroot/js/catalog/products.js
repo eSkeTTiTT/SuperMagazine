@@ -13,7 +13,6 @@
         processData: false,
         contentType: false,
         success: function (data) {
-            alert(data.count);
             $("#bucket").text("Корзина (" + data.count + ")");
         },
         error: function (xhr, status, p3, p4) {

@@ -1,0 +1,43 @@
+﻿@model List<SuperMagazine.Domain.Models.Catalog.BucketViewModel>;
+
+<link rel="stylesheet" href="~/css/bucket/bucket.css" />
+
+<div class="container">
+
+	<h1>Shopping Cart</h1>
+
+	<div class="cart">
+		<div class="products">
+			@foreach (var product in Model)
+			{
+				<div class="product">
+					<img src="@product.ImageUrl">
+					<div class="product-info">
+						<h3 class="product-name">@product.Name</h3>
+						<h4 class="product-price">@string.Format("{0:C0}", product.Price)</h4>
+						<h4 class="product-offer"></h4>
+						<p class="product-quantity">Количество: <input value="@product.Amount" name="">
+						<p class="product-remove">
+							<i class="fa fa-trash" aria-hidden="true"></i>
+							<span class="remove">Удалить</span>
+						</p>
+					</div>
+				</div>
+			}
+		</div>
+
+		<div class="cart-total">
+			<p>
+				<span>Общая сумма</span>
+				<span>@string.Format("{0:C0}", @Model.Sum(v => v.Amount * v.Price))</span>
+			</p>
+			<p>
+				<span>Количество товаров</span>
+				<span>@Model.Sum(v => v.Amount)</span>
+			</p>
+			<a href="#">Купить</a>
+		</div>
+	</div>
+</div>
+
+<script src="~/js/bucket/bucket.js"></script>
