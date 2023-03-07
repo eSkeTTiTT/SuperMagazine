@@ -1,7 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using CloudinaryDotNet;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SuperMagazine.DAL.Interfaces;
+using SuperMagazine.Domain.Consts;
 using SuperMagazine.Domain.Entities;
+using SuperMagazine.Domain.Models.Catalog;
+using SuperMagazine.Extensions.Session;
 
 namespace SuperMagzine.Controllers
 {
@@ -42,9 +46,34 @@ namespace SuperMagzine.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> PutIntoBucket(Product product)
+		public async Task<JsonResult> PutIntoBucket(Product product)
 		{
-			return Ok();
+			var session = HttpContext.Session;
+            var bucketList = session.Get<List<BucketViewModel>>(Constants.SESSION_BUCKET_LIST) ?? new();
+			var bucketItem = bucketList?.FirstOrDefault(v => v.Id == product.Id);
+
+            if (bucketItem != null)
+			{
+				bucketItem.Amount += 1;
+			}
+			else
+			{
+				bucketItem = new()
+				{
+                    Id = product.Id,
+                    Name = product.Name,
+                    ImageUrl = product.ImageUrl,
+                    Price = product.Price,
+                    Amount = 1
+                };
+
+				bucketList?.Add(bucketItem);
+			}
+
+            session.Set(Constants.SESSION_BUCKET_LIST, bucketList);
+            session.Set<int?>(Constants.SESSION_COUNT, bucketList?.Count);
+
+            return Json(new { bucketList?.Count });
 		}
 	}
 }

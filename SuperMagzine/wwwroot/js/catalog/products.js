@@ -12,8 +12,9 @@
         url: '/Catalog/PutIntoBucket',
         processData: false,
         contentType: false,
-        success: function (result) {
-
+        success: function (data) {
+            alert(data.count);
+            $("#bucket").text("Корзина (" + data.count + ")");
         },
         error: function (xhr, status, p3, p4) {
 

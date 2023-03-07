@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using SuperMagazine.Domain.Models.Catalog;
+@using SuperMagazine.Domain.Consts;
+@using SuperMagazine.Extensions.Session;
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -17,7 +21,17 @@
 			await Html.RenderPartialAsync("Header/_HeaderPartial");
 		}
 		<div id="profile">
-			<a id="bucket">Корзина</a>
+			@{
+				int? count = Context.Session.Get<int?>(Constants.SESSION_COUNT);
+				if (count is null)
+				{
+					<a id="bucket">Корзина</a>
+				}
+				else
+				{
+					<a id="bucket">Корзина (@count)</a>
+				}
+			}
 			<button id="profileButton" class="profile-btn">
 				<svg 
 					id="svgProfile"
