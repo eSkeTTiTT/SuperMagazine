@@ -1,13 +1,16 @@
-﻿function RemoveItemFromBucket(id) {
-    $ajax({
+﻿function removeItemFromBucket(id) {
+    var formData = new FormData();
+
+    formData.append("id", id);
+
+    $.ajax({
         method: 'Post',
-        data: id,
-        url: '/Bucket/',
+        data: formData,
+        url: '/Bucket/RemoveItemFromBucket',
         processData: false,
         contentType: false,
         success: function (data) {
-            $("#bucket").text("Корзина (" + data.count + ")");
-            alert("Товар добавлен в корзину");
+            document.body.innerHTML = data;
         },
         error: function (xhr, status, p3, p4) {
 

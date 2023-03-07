@@ -34,10 +34,10 @@ namespace SuperMagzine.Controllers
 		}
 
 		[HttpPost]
-		public async Task<JsonResult> PutIntoBucket(Product product)
+		public JsonResult PutItemIntoBucket(Product product)
 		{
 			var session = HttpContext.Session;
-			var bucketList = session.Get<List<BucketViewModel>>(Constants.SESSION_BUCKET_LIST) ?? new();
+			var bucketList = session.Get<List<BucketViewModel>>(Constants.SESSION_BUCKET_LIST);
 			var bucketItem = bucketList?.FirstOrDefault(v => v.Id == product.Id);
 
 			if (bucketItem != null)
@@ -62,6 +62,25 @@ namespace SuperMagzine.Controllers
 			session.Set<int?>(Constants.SESSION_COUNT, bucketList?.Count);
 
 			return Json(new { bucketList?.Count });
+		}
+
+		[HttpPost]
+		public IActionResult RemoveItemFromBucket(int id)
+		{
+			var session = HttpContext.Session;
+			var bucketList = session.Get<List<BucketViewModel>>(Constants.SESSION_BUCKET_LIST);
+
+			var deleteItem = bucketList?.Single(v => v.Id == id);
+
+			if (deleteItem != null)
+			{
+				bucketList?.Remove(deleteItem);
+			}
+
+			session.Set(Constants.SESSION_BUCKET_LIST, bucketList);
+			session.Set(Constants.SESSION_COUNT, bucketList?.Count);
+
+			return View(viewName: "Index", model: bucketList);
 		}
 
 		#endregion

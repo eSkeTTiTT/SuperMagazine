@@ -1,7 +1,13 @@
-﻿@{
+﻿@using SuperMagazine.Domain.Models.Catalog;
+@using SuperMagazine.Domain.Consts;
+@using SuperMagazine.Extensions.Session;
+
+@{
 	if (Context.User.Identity?.IsAuthenticated == true)
 	{
 		Layout = "_AccountLayout";
+		Context.Session.Set(Constants.SESSION_COUNT, 0);
+		Context.Session.Set(Constants.SESSION_BUCKET_LIST, new List<BucketViewModel>());
 	}
 	else
 	{

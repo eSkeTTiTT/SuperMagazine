@@ -1,5 +1,4 @@
-﻿@using SuperMagazine.Domain.Models.Catalog;
-@using SuperMagazine.Domain.Consts;
+﻿@using SuperMagazine.Domain.Consts;
 @using SuperMagazine.Extensions.Session;
 
 <!DOCTYPE html>
@@ -22,15 +21,8 @@
 		}
 		<div id="profile">
 			@{
-				int? count = Context.Session.Get<int?>(Constants.SESSION_COUNT);
-				if (count is null)
-				{
-					<a id="bucket" class="a-bea" asp-controller="Bucket" asp-action="Index">Корзина</a>
-				}
-				else
-				{
-					<a id="bucket" class="a-bea" asp-controller="Bucket" asp-action="Index">Корзина (@count)</a>
-				}
+				int count = Context.Session.Get<int>(Constants.SESSION_COUNT);
+				<a id="bucket" class="a-bea" asp-controller="Bucket" asp-action="Index">Корзина (@count)</a>
 			}
 			<button id="profileButton" class="profile-btn">
 				<svg 
