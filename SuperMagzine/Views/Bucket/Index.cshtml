@@ -4,7 +4,7 @@
 
 <div class="container">
 
-	<h1>Shopping Cart</h1>
+	<h1>Корзина</h1>
 
 	<div class="cart">
 		<div class="products">
@@ -17,7 +17,7 @@
 						<h4 class="product-price">@string.Format("{0:C0}", product.Price)</h4>
 						<h4 class="product-offer"></h4>
 						<p class="product-quantity">Количество: <input value="@product.Amount" name="">
-						<p class="product-remove">
+						<p class="product-remove" onclick="">
 							<i class="fa fa-trash" aria-hidden="true"></i>
 							<span class="remove">Удалить</span>
 						</p>

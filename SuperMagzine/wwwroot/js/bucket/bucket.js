@@ -1,34 +1,40 @@
-﻿$('.like-btn').on('click', function () {
-    $(this).toggleClass('is-active');
-});
+﻿function RemoveItemFromBucket(id) {
+    $ajax({
+        method: 'Post',
+        data: id,
+        url: '/Bucket/',
+        processData: false,
+        contentType: false,
+        success: function (data) {
+            $("#bucket").text("Корзина (" + data.count + ")");
+            alert("Товар добавлен в корзину");
+        },
+        error: function (xhr, status, p3, p4) {
 
-$('.minus-btn').on('click', function (e) {
-    e.preventDefault();
-    var $this = $(this);
-    var $input = $this.closest('div').find('input');
-    var value = parseInt($input.val());
-
-    if (value & gt; 1) {
-    value = value - 1;
-} else {
-    value = 0;
+        }
+    });
 }
 
-$input.val(value);
- 
-});
+function putItemIntoBucket(id, name, price, imageUrl) {
+    var formData = new FormData();
 
-$('.plus-btn').on('click', function (e) {
-    e.preventDefault();
-    var $this = $(this);
-    var $input = $this.closest('div').find('input');
-    var value = parseInt($input.val());
+    formData.append("id", id);
+    formData.append("name", name);
+    formData.append("price", price);
+    formData.append("imageUrl", imageUrl);
 
-    if (value & lt; 100) {
-    value = value + 1;
-} else {
-    value = 100;
+    $.ajax({
+        method: 'Post',
+        data: formData,
+        url: '/Bucket/PutItemIntoBucket',
+        processData: false,
+        contentType: false,
+        success: function (data) {
+            $("#bucket").text("Корзина (" + data.count + ")");
+            alert("Товар добавлен в корзину");
+        },
+        error: function (xhr, status, p3, p4) {
+
+        }
+    });
 }
-
-$input.val(value);
-});
