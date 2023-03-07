@@ -30,7 +30,7 @@ namespace SuperMagzine.Controllers
 		{
 			var model = HttpContext.Session.Get<List<BucketViewModel>>(Constants.SESSION_BUCKET_LIST);
 
-			return View(model);
+			return View(model ?? new());
 		}
 
 		[HttpPost]
@@ -59,7 +59,7 @@ namespace SuperMagzine.Controllers
 			}
 
 			session.Set(Constants.SESSION_BUCKET_LIST, bucketList);
-			session.Set<int?>(Constants.SESSION_COUNT, bucketList?.Count);
+			session.Set(Constants.SESSION_COUNT, bucketList?.Count);
 
 			return Json(new { bucketList?.Count });
 		}
